@@ -81,9 +81,20 @@ def makeComic():
      canvas=makeEmptyPicture(totalWidth,maxHeight)
      
      #copy pics to canvas
+     #pic1
      for x in range(0,w1-1):
        for y in range(0,h1):
          oldPix=getPixel(pic1,x,y)
+         newPix=getPixel(canvas,x,y)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     
+     x = w1-1
+     
+     #pic2
+     for x in range(x,w2-1):
+       for y in range(0,h2):
+         oldPix=getPixel(pic2,x-(w1-1),y)
          newPix=getPixel(canvas,x,y)
          color=getColor(oldPix)
          setColor(newPix,color)
