@@ -52,7 +52,7 @@ def makeComic():
      
      #get photos
      pic1=makePicture(pickAFile())
-     pic2=makePicture(pickAFile())
+     pic2=makePicture(pickAFile()) 
      pic3=makePicture(pickAFile())
      pic4=makePicture(pickAFile())
      
@@ -76,7 +76,7 @@ def makeComic():
      print "max height = "+str(maxHeight)
      
      #write on each pic
-     #addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4)
+     addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4)
      
      #make canvas
      canvas=makeEmptyPicture(totalWidth,maxHeight)
@@ -117,7 +117,7 @@ def addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4):
             setGreen(pixl3,248)
             setBlue(pixl3,255)
         addText(pic3,50,h3-70,"Our hero hears the bad news")
-        addText(pic3,50,h3-50,"He stand in the rain")
+        addText(pic3,50,h3-50,"He stands in the rain")
         addText(pic3,50,h3-30,"looking handsom for a bit...")
       elif i==3:
         for x in range(40,300):
