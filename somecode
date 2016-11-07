@@ -1,0 +1,150 @@
+#IMPORTANT: Your submission may be used for peer review or demonstration
+#   purposes. Please DO NOT include any information that would make you or any
+#   other persons personally identifiable. If an exercise requires you to use
+#   your name, do not use your real name. The Blackboard submission system
+#   keeps track of the submitting student and you do not need to (and must not)
+#   write any names or student IDs.
+
+
+# Please post your question to the online discussion in Blackboard!
+
+
+# ******************************************************************************
+# ****************************** Tutorial 10 ***********************************
+# ******************************************************************************
+
+
+# *************************** Question/Activity 1 ******************************
+# Assignment 3 has been out for a while. Submit what you have done so far via
+# the Blackboard->Assignment 3 submission link. There is no minimum to submit.
+# Yongli will give general advice to everyone based on the common mistakes seen.
+# However, if you want specific advice on your code, you must email directly
+# with the code attached.
+
+# circumstances as mentioned in emails to RMIT teaching staff and OUA have left me with out time to commence assigment 3.
+
+# *************************** Question/Activity 2 ******************************
+# Please attempt question 5.13 from the link
+# below (login necessary):
+# https://equella.rmit.edu.au/rmit/file/0dd40e51-d2e4-4c42-9953-78a8da7814a4/1/130124_1_001.pdf
+
+def drawText(): 
+   pic=makePicture(pickAFile()) 
+   #addText(picture,x coordinate,y coordinate,"TEXT",colour)
+   addText(pic,getWidth(pic)/3,getHeight(pic)/3,"Best Movie Ever!!")
+   repaint(pic)
+
+# *************************** Question/Activity 3 ******************************
+# Using 'while' loops instead of 'for' loops, attempt question 5.14 from the link
+# below (login necessary):
+# https://equella.rmit.edu.au/rmit/file/0dd40e51-d2e4-4c42-9953-78a8da7814a4/1/130124_1_001.pdf
+# Hint: If you find 'while' loops challenging at first, use nested for loops and
+#       refer to Yongli's 'Cheat sheet on for loops, nested loops and while loops'
+#       email sent on 15 July 2016 to convert them to 'while' loops. 
+# Hint 2: Optional: Consider making the comic strip based on the individual images
+#         that you add to it. You will need to use lists for this.
+# Write your code/answer immediately below:
+
+
+# make and empty canvas, add four pic horizontaly then add text.
+def makeComic():
+   #while(addPic==true):
+     
+     #get photos
+     pic1=makePicture(pickAFile())
+     pic2=makePicture(pickAFile())
+     pic3=makePicture(pickAFile())
+     pic4=makePicture(pickAFile())
+     
+     #get heights and widths
+     h1=getHeight(pic1)
+     h2=getHeight(pic2)
+     h3=getHeight(pic3)
+     h4=getHeight(pic4)
+     w1=getWidth(pic1)
+     w2=getWidth(pic2)+w1
+     w3=getWidth(pic3)+w2
+     w4=getWidth(pic4)+w3
+     totalWidth=w4+15
+     
+     #write on each pic
+     
+     
+     #get max height
+     
+     heights=[h1,h2,h3,h4]
+     maxHeight=heights[0]
+     for i in range(0,3):
+      if heights[i]>maxHeight:
+        maxHeight=heights[i]+5
+     print "max height = "+str(maxHeight)
+     
+     #make canvas
+     canvas=makeEmptyPicture(totalWidth,maxHeight)
+         
+     #copy pics to canvas
+     copyPic1(pic1,canvas,w1,h1)
+     copyPic2(pic2,canvas,w1,w2,h2)
+     copyPic3(pic3,canvas,w2,w3,h3)
+     copyPic4(pic4,canvas,w3,w4,h4)
+     
+def copyPic1(pic1,canvas,w1,h1):
+     #pic1
+     for x in range(0,w1-1):
+       for y in range(0,h1):
+         oldPix=getPixel(pic1,x,y)
+         newPix=getPixel(canvas,x,y)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)
+          
+def copyPic2(pic2,canvas,w1,w2,h2):
+     start= w1+5
+     for i in range(start,w2-1):     
+       for j in range(0,h2):
+         oldPix=getPixel(pic2,i-start,j)
+         newPix=getPixel(canvas,i,j)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)
+     
+def copyPic3(pic3,canvas,w2,w3,h3):
+     start=w2+5
+     for i in range(start,w3-1):     
+       for j in range(0,h3):
+         oldPix=getPixel(pic3,i-start,j)
+         newPix=getPixel(canvas,i,j)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)
+
+def copyPic4(pic4,canvas,w3,w4,h4):
+     start=w3+5
+     for i in range(start,w4-1):     
+       for j in range(0,h4):
+         oldPix=getPixel(pic4,i-start,j)
+         newPix=getPixel(canvas,i,j)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)    
+     
+  
+
+
+# *************************** Question/Activity 4 ******************************
+# Attempt question 5.16 from the link below (login necessary):
+# https://equella.rmit.edu.au/rmit/file/0dd40e51-d2e4-4c42-9953-78a8da7814a4/1/130124_1_001.pdf
+# Hint 1: Questions 5.21 and 5.25 are continuations of this exercise. Make 5.16
+#         a general/reusable function that can be used to add a house to any image.
+# Hint 2: There are no marks for the aesthetics; a roof, a wall and a single door
+#         drawn using three addRect/addRectFilled calls would be adequate.
+# Write your code/answer immediately below:
+
+
+
+
+
+
+# ******************************************************************************
+	# **************************** End of Document *********************************
+# ******************************************************************************
