@@ -62,10 +62,10 @@ def makeComic():
      h3=getHeight(pic3)
      h4=getHeight(pic4)
      w1=getWidth(pic1)
-     w2=getWidth(pic2)
-     w3=getWidth(pic3)
-     w4=getWidth(pic4)
-     totalWidth=w1+w2+w3+w4
+     w2=getWidth(pic2)+w1
+     w3=getWidth(pic3)+w2
+     w4=getWidth(pic4)+w3
+     totalWidth=w4
      
      #write on each pic
      
@@ -76,11 +76,18 @@ def makeComic():
      for i in range(0,2):
       if heights[i]>maxHeight:
         maxHeight=heights[i]
+     print "max height = "+str(maxHeight)
      
      #make canvas
      canvas=makeEmptyPicture(totalWidth,maxHeight)
-     
+         
      #copy pics to canvas
+     copyPic1(pic1,canvas,w1,h1)
+     copyPic2(pic2,canvas,w1,w2,h2)
+     copyPic3(pic3,canvas,w2,w3,h3)
+     copyPic4(pic4,canvas,w3,w4,h4)
+     
+def copyPic1(pic1,canvas,w1,h1):
      #pic1
      for x in range(0,w1-1):
        for y in range(0,h1):
@@ -88,18 +95,42 @@ def makeComic():
          newPix=getPixel(canvas,x,y)
          color=getColor(oldPix)
          setColor(newPix,color)
+     repaint(canvas)
      
-     x = w1-1
      
-     #pic2
-     for x in range(x,w2-1):
-       for y in range(0,h2):
-         oldPix=getPixel(pic2,x-(w1-1),y)
-         newPix=getPixel(canvas,x,y)
+     
+def copyPic2(pic2,canvas,w1,w2,h2):
+     start= w1-1
+     for i in range(start,w2-1):     
+       for j in range(0,h2):
+         oldPix=getPixel(pic2,i-start,j)
+         newPix=getPixel(canvas,i,j)
          color=getColor(oldPix)
          setColor(newPix,color)
      repaint(canvas)
+     print "hello"
      
+def copyPic3(pic3,canvas,w2,w3,h3):
+     start=w2-1
+     for i in range(start,w3-1):     
+       for j in range(0,h3):
+         oldPix=getPixel(pic3,i-start,j)
+         newPix=getPixel(canvas,i,j)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)
+     print "hello bob"
+
+def copyPic4(pic4,canvas,w3,w4,h4):
+     start=w3-1
+     for i in range(start,w4-1):     
+       for j in range(0,h4):
+         oldPix=getPixel(pic4,i-start,j)
+         newPix=getPixel(canvas,i,j)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)
+     print "hello roger"
      
      
      
