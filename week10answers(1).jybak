@@ -65,15 +65,16 @@ def makeComic():
      w2=getWidth(pic2)+w1
      w3=getWidth(pic3)+w2
      w4=getWidth(pic4)+w3
-     totalWidth=w4
+     totalWidth=w4+15
      
      #write on each pic
      
      
      #get max height
-     maxHeight=h1
-     heights=[h2,h3,h4]
-     for i in range(0,2):
+     
+     heights=[h1,h2,h3,h4]
+     maxHeight=heights[0]
+     for i in range(0,3):
       if heights[i]>maxHeight:
         maxHeight=heights[i]
      print "max height = "+str(maxHeight)
@@ -85,7 +86,7 @@ def makeComic():
      copyPic1(pic1,canvas,w1,h1)
      copyPic2(pic2,canvas,w1,w2,h2)
      copyPic3(pic3,canvas,w2,w3,h3)
-     copyPic4(pic4,canvas,w3,w4,h4)
+     copyPic4(pic4,canvas,w3,w4,maxHeight)
      
 def copyPic1(pic1,canvas,w1,h1):
      #pic1
@@ -96,11 +97,9 @@ def copyPic1(pic1,canvas,w1,h1):
          color=getColor(oldPix)
          setColor(newPix,color)
      repaint(canvas)
-     
-     
-     
+          
 def copyPic2(pic2,canvas,w1,w2,h2):
-     start= w1-1
+     start= w1+5
      for i in range(start,w2-1):     
        for j in range(0,h2):
          oldPix=getPixel(pic2,i-start,j)
@@ -108,10 +107,9 @@ def copyPic2(pic2,canvas,w1,w2,h2):
          color=getColor(oldPix)
          setColor(newPix,color)
      repaint(canvas)
-     print "hello"
      
 def copyPic3(pic3,canvas,w2,w3,h3):
-     start=w2-1
+     start=w2+5
      for i in range(start,w3-1):     
        for j in range(0,h3):
          oldPix=getPixel(pic3,i-start,j)
@@ -119,20 +117,16 @@ def copyPic3(pic3,canvas,w2,w3,h3):
          color=getColor(oldPix)
          setColor(newPix,color)
      repaint(canvas)
-     print "hello bob"
 
-def copyPic4(pic4,canvas,w3,w4,h4):
-     start=w3-1
+def copyPic4(pic4,canvas,w3,w4,maxHeight):
+     start=w3+5
      for i in range(start,w4-1):     
-       for j in range(0,h4):
+       for j in range(0,maxHeight):
          oldPix=getPixel(pic4,i-start,j)
          newPix=getPixel(canvas,i,j)
          color=getColor(oldPix)
          setColor(newPix,color)
-     repaint(canvas)
-     print "hello roger"
-     
-     
+     repaint(canvas)    
      
   
 
