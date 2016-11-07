@@ -76,7 +76,7 @@ def makeComic():
      maxHeight=heights[0]
      for i in range(0,3):
       if heights[i]>maxHeight:
-        maxHeight=heights[i]
+        maxHeight=heights[i]+5
      print "max height = "+str(maxHeight)
      
      #make canvas
@@ -86,7 +86,11 @@ def makeComic():
      copyPic1(pic1,canvas,w1,h1)
      copyPic2(pic2,canvas,w1,w2,h2)
      copyPic3(pic3,canvas,w2,w3,h3)
-     copyPic4(pic4,canvas,w3,w4,maxHeight)
+     copyPic4(pic4,canvas,w3,w4,h4)
+     
+def addWritting():
+    for i in range(0,3)
+      
      
 def copyPic1(pic1,canvas,w1,h1):
      #pic1
@@ -118,10 +122,10 @@ def copyPic3(pic3,canvas,w2,w3,h3):
          setColor(newPix,color)
      repaint(canvas)
 
-def copyPic4(pic4,canvas,w3,w4,maxHeight):
+def copyPic4(pic4,canvas,w3,w4,h4):
      start=w3+5
      for i in range(start,w4-1):     
-       for j in range(0,maxHeight):
+       for j in range(0,h4):
          oldPix=getPixel(pic4,i-start,j)
          newPix=getPixel(canvas,i,j)
          color=getColor(oldPix)
