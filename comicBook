@@ -70,22 +70,22 @@ def makeComic():
      #get max height
      heights=[h1,h2,h3,h4]
      maxHeight=heights[0]
-     for i in range(0,3):
+     for i in range(0,4):
       if heights[i]>maxHeight:
         maxHeight=heights[i]+5
      print "max height = "+str(maxHeight)
      
      #write on each pic
-     addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4)
+     #addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4)
      
      #make canvas
      canvas=makeEmptyPicture(totalWidth,maxHeight)
          
      #copy pics to canvas
-     #copyPic1(pic1,canvas,w1,h1)
-     #copyPic2(pic2,canvas,w1,w2,h2)
-     #copyPic3(pic3,canvas,w2,w3,h3)
-     #copyPic4(pic4,canvas,w3,w4,h4)
+     copyPic1(pic1,canvas,w1,h1)
+     copyPic2(pic2,canvas,w1,w2,h2)
+     copyPic3(pic3,canvas,w2,w3,h3)
+     copyPic4(pic4,canvas,w3,w4,h4)
      
 def addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4):
     for i in range(0,4):
@@ -132,10 +132,7 @@ def addWritting(pic1,pic2,pic3,pic4,h1,h2,h3,h4):
       repaint(pic1)
       repaint(pic2)
       repaint(pic3)
-      repaint(pic4)
-      
-      
-      
+      repaint(pic4)     
      
 def copyPic1(pic1,canvas,w1,h1):
      #pic1
