@@ -56,11 +56,16 @@ def makeComic():
      pic3=makePicture(pickAFile())
      pic4=makePicture(pickAFile())
      
-     #get heights
+     #get heights and widths
      h1=getHeight(pic1)
      h2=getHeight(pic2)
      h3=getHeight(pic3)
      h4=getHeight(pic4)
+     w1=getWidth(pic1)
+     w2=getWidth(pic2)
+     w3=getWidth(pic3)
+     w4=getWidth(pic4)
+     totalWidth=w1+w2+w3+w4
      
      #write on each pic
      
@@ -73,9 +78,16 @@ def makeComic():
         maxHeight=heights[i]
      
      #make canvas
-     canvas=makeEmptyPicture((getWidth(pic1)+getWidth(pic2)+getWidth(pic3)+getWidth(pic4)),maxHeight)
+     canvas=makeEmptyPicture(totalWidth,maxHeight)
      
      #copy pics to canvas
+     for x in range(0,w1-1):
+       for y in range(0,h1):
+         oldPix=getPixel(pic1,x,y)
+         newPix=getPixel(canvas,x,y)
+         color=getColor(oldPix)
+         setColor(newPix,color)
+     repaint(canvas)
      
      
      
